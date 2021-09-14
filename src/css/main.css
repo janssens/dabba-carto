@@ -1,0 +1,42 @@
+@charset "UTF-8";
+#dabba-carto {
+  font-family: "Montserrat", Sans-serif; }
+  #dabba-carto #mapid {
+    height: 600px; }
+  #dabba-carto #restaurants-list {
+    overflow-y: scroll;
+    height: 600px; }
+    #dabba-carto #restaurants-list > div:first-child {
+      @apply mt-0; }
+  #dabba-carto .zones > a {
+    color: #5f5f5f; }
+    #dabba-carto .zones > a:before {
+      content: '';
+      width: 3rem;
+      height: 3rem;
+      display: inline-block;
+      background-image: url("../img/pin2.png");
+      background-size: contain;
+      background-repeat: no-repeat; }
+    #dabba-carto .zones > a.active {
+      color: #F99664; }
+  #dabba-carto .restaurant_card .name {
+    color: #F99664; }
+  #dabba-carto .restaurant_card .address {
+    font-size: 1.3rem;
+    color: #5f5f5f; }
+  #dabba-carto .restaurant_card.active {
+    background: #F99664; }
+    #dabba-carto .restaurant_card.active a {
+      color: white; }
+    #dabba-carto .restaurant_card.active .name {
+      color: white;
+      font-weight: bold; }
+  #dabba-carto .restaurant_card a {
+    color: #F99664; }
+    #dabba-carto .restaurant_card a:before {
+      content: '→'; }
+  #dabba-carto .content {
+    background: #F99664; }
+  #dabba-carto .leaflet-popup-content .bg-cover {
+    background-image: var(--bg-image); }

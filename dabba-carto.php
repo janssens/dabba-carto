@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Dabba carto widget for wp
+ * Plugin Name: Dabba carto SHORTCODE for wp
  * Plugin URI: https://github.com/stuff
  * Description: Add dabba map and marker to your site
  * Author: Janssens Gaetan

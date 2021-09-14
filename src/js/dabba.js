@@ -149,6 +149,12 @@ function highlightMe(id){
         $current.prependTo('#restaurants-list');
 }
 
+function Deg2Rad(degrees)
+{
+    var pi = Math.PI;
+    return degrees * (pi/180);
+}
+
 function PythagorasEquirectangular(lat1, lon1, lat2, lon2) {
     lat1 = Deg2Rad(lat1);
     lat2 = Deg2Rad(lat2);

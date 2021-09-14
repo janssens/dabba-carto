@@ -25,6 +25,8 @@
       background-repeat: no-repeat; }
     #dabba-carto .zones > a.active {
       color: #F99664; }
+  #dabba-carto .restaurant_card .img {
+    @apply w-64 h-64; }
   #dabba-carto .restaurant_card .name {
     color: #F99664; }
   #dabba-carto .restaurant_card .address {

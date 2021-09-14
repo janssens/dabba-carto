@@ -40,6 +40,9 @@ $map-height: 600px;
         }
     }
     .restaurant_card{
+        .img {
+            @apply w-64 h-64;
+        }
         .name {
             color: $crevette;
         }

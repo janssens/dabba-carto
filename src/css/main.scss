@@ -41,7 +41,8 @@ $map-height: 600px;
     }
     .restaurant_card{
         .img {
-            @apply w-64 h-64;
+            height: 16rem !important;
+            width: 16rem !important;
         }
         .name {
             color: $crevette;

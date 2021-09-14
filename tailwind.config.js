@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'jit', // Just-In-Time Compiler
-  purge: ['./template.php','./include.html'],
+  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {

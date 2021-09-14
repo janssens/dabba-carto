@@ -1,6 +1,11 @@
 @charset "UTF-8";
+.elementor #dabba-carto img {
+  height: inherit; }
+
 #dabba-carto {
   font-family: "Montserrat", Sans-serif; }
+  #dabba-carto.alignfull img {
+    width: inherit; }
   #dabba-carto #mapid {
     height: 600px; }
   #dabba-carto #restaurants-list {
@@ -23,7 +28,7 @@
   #dabba-carto .restaurant_card .name {
     color: #F99664; }
   #dabba-carto .restaurant_card .address {
-    font-size: 1.3rem;
+    font-size: 0.9rem;
     color: #5f5f5f; }
   #dabba-carto .restaurant_card.active {
     background: #F99664; }

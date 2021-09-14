@@ -137,6 +137,8 @@ exports.default = series(
 
 exports.prod = series(
   prodClean, // Clean Build Folder
+    devClean,
+    devStyles,
   parallel(prodStyles, prodScripts, prodImages), //Run All tasks in parallel
   buildFinish
 );

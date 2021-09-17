@@ -112,7 +112,7 @@ function get_meal_types(){
 
     wp_die(); // this is required to terminate immediately and return a proper response
 }
-add_action( 'wp_ajax_dabba_get_meal_types', 'get_meal_types' );
+add_action( 'wp_ajax_dabba_meal_types', 'get_meal_types' );
 add_action( 'wp_ajax_nopriv_dabba_meal_types', 'get_meal_types' );
 
 function get_tagss(){

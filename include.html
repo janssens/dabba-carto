@@ -1,5 +1,14 @@
-<form action="">
-<span class="ms-helper " style="display: none;"></span><div class="ms-sel-ctn"><input type="text" class="" placeholder="Je veux manger un plat :" style="width: 1016px;"><div style="display: none;"></div></div><div class="ms-trigger"><div class="ms-trigger-ico"></div></div><div class="ms-res-ctn dropdown-menu" style="height: 203px; display: block;"><div class="ms-res-item" data-json="{&quot;id&quot;:1,&quot;name&quot;:&quot;Traditionel&quot;}">Traditionel</div><div class="ms-res-item" data-json="{&quot;id&quot;:2,&quot;name&quot;:&quot;Bio&quot;}">Bio</div><div class="ms-res-item" data-json="{&quot;id&quot;:3,&quot;name&quot;:&quot;Végétarien&quot;}">Végétarien</div><div class="ms-res-item" data-json="{&quot;id&quot;:4,&quot;name&quot;:&quot;Vegan&quot;}">Vegan</div><div class="ms-res-item" data-json="{&quot;id&quot;:5,&quot;name&quot;:&quot;Local&quot;}">Local</div><div class="ms-res-item" data-json="{&quot;id&quot;:6,&quot;name&quot;:&quot;Italien&quot;}">Italien</div><div class="ms-res-item ms-res-item-active" data-json="{&quot;id&quot;:7,&quot;name&quot;:&quot;Asiatique&quot;}">Asiatique</div></div>
+<form id="filter" class="flex">
+    <div id="meal_types" data-placeholder="Je veux manger un plat :" class="w-1/2">
+        <select>
+        </select>
+        <input type="text" name="meal_types" disabled="disabled" class="hidden">
+    </div>
+    <div id="tags" data-placeholder="Type de repas :" class="w-1/2">
+        <select style="display: none;">
+            <option value="1">Traditionel</option><option value="2">Bio</option><option value="3">Végétarien</option><option value="4">Vegan</option><option value="5">Local</option><option value="6">Italien</option><option value="7">Asiatique</option></select>
+        <input type="text" name="tags" disabled="disabled" class="hidden">
+        <div class="multiselect-wrap"><div class="multiselect-selected">Type de repas :</div><div class="multiselect-list" style="display: none;"><div data-val="1">Traditionel</div><div data-val="2">Bio</div><div data-val="3">Végétarien</div><div data-val="4">Vegan</div><div data-val="5">Local</div><div data-val="6">Italien</div><div data-val="7">Asiatique</div></div></div></div>
 </form>
 <div class="elementor">
     <div id="dabba-carto" class="alignfull p-4">

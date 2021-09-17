@@ -9,7 +9,7 @@
         <div class="sm:w-2/3 w-100">
             <div class="h-24 w-100 sm:block hidden"></div>
             <div class="zones w-100 text-center mb-12"></div>
-            <form id="filter" class="flex">
+            <form id="filter" class="flex mb-12" >
                 <div id="meal_types" data-placeholder="Je veux manger un plat :" class="w-1/2">
                     <select >
                     </select>

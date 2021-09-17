@@ -2,8 +2,17 @@
 .elementor #dabba-carto img {
   height: inherit; }
 
+form#filter .multiselect-wrap {
+  @apply rounded-full m-auto shadow-xl;
+  border: 0; }
+
+form#filter .multiselect-selected span {
+  @apply rounded-full; }
+
 #dabba-carto {
   font-family: "Montserrat", Sans-serif; }
+  #dabba-carto input.hidden {
+    display: none; }
   #dabba-carto.alignfull img {
     width: inherit; }
   #dabba-carto #mapid {

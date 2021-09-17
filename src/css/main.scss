@@ -7,7 +7,19 @@ $map-height: 600px;
 .elementor #dabba-carto img {
     height: inherit;
 }
+form#filter {
+    .multiselect-wrap{
+        @apply rounded-full m-auto shadow-xl ;
+        border: 0;
+    }
+    .multiselect-selected span{
+        @apply rounded-full;
+    }
+}
 #dabba-carto{
+    input.hidden{
+        display: none;
+    }
     &.alignfull img {
         width: inherit;
     }

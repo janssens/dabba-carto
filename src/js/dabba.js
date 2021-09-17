@@ -30,6 +30,17 @@ jQuery(document).ready(function($) {
             }
             return phrase;
         });
+    jQuery.addTemplateFormatter("MyDataTags",
+        function(value, template) {
+            if (typeof value == 'undefined'){
+                return '';
+            }
+            var phrase = '';
+            for (let i = 0; i < value.length; i++) {
+                phrase += value[i].name;
+            }
+            return phrase;
+        });
     jQuery.addTemplateFormatter("MyOpeningHours",
         function(value, template) {
             if (typeof value == 'undefined'){
@@ -54,6 +65,10 @@ jQuery(document).ready(function($) {
         popupAnchor: [0, -50]
     });
 
+    //
+    jQuery("#meal_types").change( function (){ console.log(this.val()) });
+    getMealTypes();
+    getTags();
     //create map
     initMap('mapid');
     if (window.dabba_map){
@@ -95,6 +110,8 @@ window.current_restaurant_id = null;
 window.upper_zoom = 12;
 window.close_zoom = 16;
 window.markers = {};
+window.meal_types = [];
+window.tags = [];
 window.zones = [
     {"name" : "Grenoble", "lat" : 45.1841642, "lng" : 5.6980329},
     {"name" : "Lyon", "lat" : 45.7579502,"lng" : 4.8001018},
@@ -105,6 +122,109 @@ window.zones = [
 
 window.myIcon = null;
 
+function getMealTypes(){
+    var post_data = {
+        'action': 'dabba_meal_types'
+    };
+    jQuery.ajax({
+        type : 'POST',
+        url : ajax_object.ajax_url,
+        data : post_data,
+        dataType : 'json',
+        success : function(data){
+            if (typeof data == 'object'){
+                $meal_container = jQuery('#meal_types');
+                var i = 0,select = $meal_container.find('select');
+                for (; i < data.length; i += 1) {
+                    var $option = jQuery('<option></option>');
+                    $option.attr('value', data[i].id);
+                    $option.html(data[i].name);
+                    $meal_container.find('select').append($option);
+                }
+                $meal_container.multiSelect({
+                    label: $meal_container.data('placeholder')
+                });
+                jQuery('[name="meal_types"]').val('');
+                $meal_container.on('click','.multiselect-wrap', function(){
+                    var list = jQuery('[name="meal_types"]').val();
+                    var has_change = false;
+                    if (list){
+                        var meal_types_array = list.split(",");
+                        if (meal_types_array != window.meal_types)
+                        {
+                            window.meal_types = meal_types_array;
+                            has_change = true;
+                        }
+                    }else{
+                        $meal_container.find('.multiselect-selected').html($meal_container.data('placeholder'));
+                        if (window.meal_types.length > 0)
+                        {
+                            window.meal_types = [];
+                            has_change = true;
+                        }
+                    }
+                    if (window.dabba_map && has_change){
+                        getRestaurants(window.dabba_map.getBounds());
+                    }
+                });
+            }else{
+                console.log(data);
+            }
+        }
+    });
+}
+
+function getTags(){
+    var post_data = {
+        'action': 'dabba_get_tags'
+    };
+    jQuery.ajax({
+        type : 'POST',
+        url : ajax_object.ajax_url,
+        data : post_data,
+        dataType : 'json',
+        success : function(data){
+            if (typeof data == 'object'){
+                $tags_container = jQuery('#tags');
+                var i = 0,select = $tags_container.find('select');
+                for (; i < data.length; i += 1) {
+                    var $option = jQuery('<option></option>');
+                    $option.attr('value', data[i].id);
+                    $option.html(data[i].name);
+                    $tags_container.find('select').append($option);
+                }
+                $tags_container.multiSelect({
+                    label: $tags_container.data('placeholder')
+                });
+                jQuery('[name="tags"]').val('');
+                $tags_container.on('click','.multiselect-wrap', function(){
+                    var has_change = false;
+                    var list = jQuery('[name="tags"]').val();
+                    if (list){
+                        var tags_array = list.split(",");
+                        if (tags_array != window.tags)
+                        {
+                            window.tags = tags_array;
+                            has_change = true;
+                        }
+                    }else{
+                        $tags_container.find('.multiselect-selected').html($tags_container.data('placeholder'));
+                        if (window.tags.length > 0)
+                        {
+                            window.tags = [];
+                            has_change = true;
+                        }
+                    }
+                    if (window.dabba_map && has_change){
+                        getRestaurants(window.dabba_map.getBounds());
+                    }
+                });
+            }else{
+                console.log(data);
+            }
+        }
+    });
+}
 
 function getRestaurants(bounds){
     //console.log(bounds);
@@ -117,6 +237,12 @@ function getRestaurants(bounds){
         post_data.east = bounds.getEast()
         post_data.north = bounds.getNorth()
     }
+    if (window.tags.length > 0){
+        post_data.tags = window.tags;
+    }
+    if (window.meal_types.length > 0){
+        post_data.meal_types = window.meal_types;
+    }
     jQuery.ajax({
         type : 'POST',
         url : ajax_object.ajax_url,
@@ -124,7 +250,12 @@ function getRestaurants(bounds){
         dataType : 'json',
         success : function(data){
             if (typeof data == 'object'){
-                // console.log(data);
+                //console.log(data);
+                if (typeof window.markers == 'object') {
+                    Object.keys(window.markers).forEach(key => {
+                        window.markers[key].remove();
+                    });
+                }
                 data.forEach(obj => {
                     addMarker(obj);
                     //addCard(obj);
@@ -184,7 +315,7 @@ function NearestZone(latitude, longitude) {
 
 function initMap(id){
     if (document.getElementById(id)){
-        window.dabba_map = L.map(id);
+        window.dabba_map = L.map(id,{ dragging: !L.Browser.mobile, tap: !L.Browser.mobile, fullscreenControl: true });
         centerToZone(window.zones[0]);
 
         L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -248,6 +379,8 @@ function addMarker(obj){
                 //window.dabba_map.setView(ev.latlng,window.close_zoom);
             });
             window.markers['restaurant_'+obj.id] = marker;
+        }else{
+            window.markers['restaurant_'+obj.id].addTo(window.dabba_map);
         }
     }
 }

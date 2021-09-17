@@ -1,10 +1,11 @@
 <div id="dabba-carto" class="alignfull p-4">
     <div class="sm:flex">
         <div class="sm:hidden w-100">
+            <?php if ($content) : ?>
             <div class="content text-white rounded-3xl m-4 text-center py-12 px-8 shadow-xl">
-                Commandez un plat à emporter dans un contenant consigné. <br>
-                Rapportez-le une fois dégusté et rincé dans n'importe quel resto du réseau dabba !
+                <?php echo $content; ?>
             </div>
+            <?php endif; ?>
         </div>
         <div class="sm:w-2/3 w-100">
             <div class="h-24 w-100 sm:block hidden"></div>
@@ -23,10 +24,11 @@
             </form>
         </div>
         <div class="sm:w-1/3 w-100 hidden sm:block">
+            <?php if ($content) : ?>
             <div class="content text-white rounded-3xl m-4 text-center py-12 px-8 shadow-xl">
-                Commandez un plat à emporter dans un contenant consigné. <br>
-                Rapportez-le une fois dégusté et rincé dans n'importe quel resto du réseau dabba !
+                <?php echo $content; ?>
             </div>
+            <?php endif; ?>
         </div>
     </div>
     <div class="sm:flex">

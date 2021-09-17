@@ -16,13 +16,24 @@ if ($is_dev){
     $path = 'build';
 }
 
-include_once "inc/widget.php";
+//include_once "inc/widget.php";
 //include_once "inc/settings.php";
 include_once "inc/ajax.php";
 
 add_shortcode('dabba', 'shortcode_function');
 function shortcode_function($attributes = array() , $content = null ) {
-    include_once __DIR__."/template.php";
+
+    if (!is_admin()){
+        // Start output buffering
+        ob_start();
+        // Include the template file
+        include __DIR__."/template.php";
+        // End buffering and return its contents
+        $output = ob_get_clean();
+
+        echo $output;
+    }
+
 }
 
 //scripts

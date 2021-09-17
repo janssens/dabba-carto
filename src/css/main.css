@@ -33,27 +33,27 @@ form#filter .multiselect-selected span {
       background-size: contain;
       background-repeat: no-repeat; }
     #dabba-carto .zones > a.active {
-      color: #F99664; }
+      color: #F96C26; }
   #dabba-carto .restaurant_card img {
     height: 16rem !important;
     width: 16rem !important; }
   #dabba-carto .restaurant_card .name {
-    color: #F99664; }
+    color: #F96C26; }
   #dabba-carto .restaurant_card .address {
     font-size: 0.9rem;
     color: #5f5f5f; }
   #dabba-carto .restaurant_card.active {
-    background: #F99664; }
+    background: #F96C26; }
     #dabba-carto .restaurant_card.active a {
       color: white; }
     #dabba-carto .restaurant_card.active .name {
       color: white;
       font-weight: bold; }
   #dabba-carto .restaurant_card a {
-    color: #F99664; }
+    color: #F96C26; }
     #dabba-carto .restaurant_card a:before {
       content: '→'; }
   #dabba-carto .content {
-    background: #F99664; }
+    background: #F96C26; }
   #dabba-carto .leaflet-popup-content .bg-cover {
     background-image: var(--bg-image); }

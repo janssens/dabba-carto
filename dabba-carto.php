@@ -5,7 +5,7 @@
  * Description: Add dabba map and marker to your site
  * Author: Janssens Gaetan
  * Author URI: https://plopcom.fr
- * Version: 1.1.2
+ * Version: 1.1.3
  */
 
 $is_dev = false;
@@ -36,13 +36,15 @@ function shortcode_function($attributes = array() , $content = null ) {
 
 }
 
-//scripts
-wp_enqueue_script( 'dabba', plugins_url( '/'.$path.'/js/scripts.js', __FILE__ ), array('jquery','leaflet') );
-wp_localize_script( 'dabba', 'ajax_object',
-    array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'plugins_url' =>  plugins_url( '/'.$path.'/', __FILE__ )) );
+if (!is_admin()) {
+    //scripts
+    wp_enqueue_script('dabba', plugins_url('/' . $path . '/js/scripts.js', __FILE__), array('jquery', 'leaflet'));
+    wp_localize_script('dabba', 'ajax_object',
+        array('ajax_url' => admin_url('admin-ajax.php'), 'plugins_url' => plugins_url('/' . $path . '/', __FILE__)));
 
-wp_enqueue_script('leaflet','https://unpkg.com/leaflet@1.7.1/dist/leaflet.js');
+    wp_enqueue_script('leaflet', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js');
 
-//styles
-wp_enqueue_style('leaflet','https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
-wp_enqueue_style('dabba',plugins_url( '/'.$path.'/css/style.css', __FILE__ ));
+    //styles
+    wp_enqueue_style('leaflet', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
+    wp_enqueue_style('dabba', plugins_url('/' . $path . '/css/style.css', __FILE__));
+}

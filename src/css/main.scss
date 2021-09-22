@@ -7,16 +7,20 @@ $map-height: 600px;
 .elementor #dabba-carto img {
     height: inherit;
 }
+
 form#filter {
     .multiselect-wrap{
-        @apply rounded-full m-auto shadow-xl ;
-        border: 0;
+        @apply rounded-full m-auto sm:shadow-xl sm:border-0 border mb-6 sm:mb-0;
     }
-    .multiselect-selected span{
-        @apply rounded-full;
+    .multiselect-selected{
+        line-height: 35px;
+        span{
+            @apply rounded-full;
+        }
     }
 }
 #dabba-carto{
+    font-size: 1.4rem;
     input.hidden{
         display: none;
     }
@@ -36,6 +40,7 @@ form#filter {
     }
     .zones{
         & > a{
+            display: inline-block;
             color: $gray;
             &:before{
                 content: '';

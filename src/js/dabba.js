@@ -77,21 +77,22 @@ jQuery(document).ready(function($) {
     }
 
     jQuery('#restaurants-list').on('click','div.restaurant_card',function (e){
-        e.preventDefault();
-        if (typeof window.markers[this.id] != "undefined"){
-            var id = this.id;
-            if (jQuery(this).hasClass('active')){
-                window.current_restaurant_id = null;
-                window.markers[id].closePopup();
-                window.dabba_map.setZoom(window.upper_zoom);
-                jQuery(this).removeClass('active');
-            }else{
-                //window.dabba_map.setView(window.markers[id].getLatLng(),window.close_zoom);
-                window.markers[id].openPopup();
-                window.current_restaurant_id = '#'+id;
-                highlightMe(window.current_restaurant_id);
+        if (e.target.tagName !== 'A'){
+            e.preventDefault();
+            if (typeof window.markers[this.id] != "undefined"){
+                var id = this.id;
+                if (jQuery(this).hasClass('active')){
+                    window.current_restaurant_id = null;
+                    window.markers[id].closePopup();
+                    window.dabba_map.setZoom(window.upper_zoom);
+                    jQuery(this).removeClass('active');
+                }else{
+                    //window.dabba_map.setView(window.markers[id].getLatLng(),window.close_zoom);
+                    window.markers[id].openPopup();
+                    window.current_restaurant_id = '#'+id;
+                    highlightMe(window.current_restaurant_id);
+                }
             }
-
         }
     });
     jQuery('.zones').on('click','a',function (e){

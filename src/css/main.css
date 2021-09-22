@@ -3,13 +3,15 @@
   height: inherit; }
 
 form#filter .multiselect-wrap {
-  @apply rounded-full m-auto shadow-xl;
-  border: 0; }
+  @apply rounded-full m-auto sm:shadow-xl sm:border-0 border mb-6 sm:mb-0; }
 
-form#filter .multiselect-selected span {
-  @apply rounded-full; }
+form#filter .multiselect-selected {
+  line-height: 35px; }
+  form#filter .multiselect-selected span {
+    @apply rounded-full; }
 
 #dabba-carto {
+  font-size: 1.4rem;
   font-family: "Montserrat", Sans-serif; }
   #dabba-carto input.hidden {
     display: none; }
@@ -23,6 +25,7 @@ form#filter .multiselect-selected span {
     #dabba-carto #restaurants-list > div:first-child {
       @apply mt-0; }
   #dabba-carto .zones > a {
+    display: inline-block;
     color: #5f5f5f; }
     #dabba-carto .zones > a:before {
       content: '';

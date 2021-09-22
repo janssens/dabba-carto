@@ -43,9 +43,9 @@
         <img data-src="image" data-alt="name" class="w-64 h-64 cursor-pointer" >
         <div class="p-5">
             <div data-content="name" class="name text-2xl"></div>
-            <div data-template-bind='[{"attribute": "content", "value": "tags", "formatter": "MyRestaurantTags"}]' class="text-xs font-bold"></div>
-            <div data-content="address" class="text-sm address"></div>
-            <div data-content="phone" class="text-xl"></div>
+            <div data-template-bind='[{"attribute": "content", "value": "tags", "formatter": "MyRestaurantTags"}]' class="text-sm font-bold"></div>
+            <div data-content="address" class="text-base address"></div>
+            <div data-content="phone" class="text-lg"></div>
             <a data-href="website" class="no-underline" target="_blank">voir le site web</a>
         </div>
     </div>

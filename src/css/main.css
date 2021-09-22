@@ -43,7 +43,6 @@ form#filter .multiselect-selected {
   #dabba-carto .restaurant_card .name {
     color: #F99664; }
   #dabba-carto .restaurant_card .address {
-    font-size: 0.9rem;
     color: #5f5f5f; }
   #dabba-carto .restaurant_card.active {
     background: #F99664; }
@@ -55,7 +54,8 @@ form#filter .multiselect-selected {
   #dabba-carto .restaurant_card a {
     color: #F99664; }
     #dabba-carto .restaurant_card a:before {
-      content: '→'; }
+      content: '→';
+      margin-right: 0.5rem; }
   #dabba-carto .content {
     background: #F99664; }
   #dabba-carto .leaflet-popup-content .bg-cover {

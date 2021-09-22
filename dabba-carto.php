@@ -8,7 +8,7 @@
  * Version: 1.1.3
  */
 
-$is_dev = false;
+$is_dev = true;
 
 if ($is_dev){
     $path = 'dist';

@@ -26,16 +26,16 @@ function get_restaurants(){
     // Will return the response, if false it print the response
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     // Set the url
-    $api_url = 'https://dabba.plopcom.fr/api/restaurants';
+    $api_url = 'https://api.dabba-consigne.fr/api/restaurants';
     if (count($tags) == 0 && count($types) == 0){
         $need_filter = false;
     }
     if (count($tags)==1 && count($types) == 0){
-        $api_url = 'https://dabba.plopcom.fr/api/tags/'.$tags[0].'/restaurants';
+        $api_url = 'https://api.dabba-consigne.fr/api/tags/'.$tags[0].'/restaurants';
         $need_filter = false;
     }
     if (count($tags)==0 && count($types) == 1){
-        $api_url = 'https://dabba.plopcom.fr/api/meal_types/'.$types[0].'/restaurants';
+        $api_url = 'https://api.dabba-consigne.fr/api/meal_types/'.$types[0].'/restaurants';
         $need_filter = false;
     }
     curl_setopt($ch, CURLOPT_URL,$api_url.'?'.http_build_query($params));
@@ -102,7 +102,7 @@ function get_meal_types(){
     // Will return the response, if false it print the response
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     // Set the url
-    curl_setopt($ch, CURLOPT_URL,'https://dabba.plopcom.fr/api/meal_types');
+    curl_setopt($ch, CURLOPT_URL,'https://api.dabba-consigne.fr/api/meal_types');
     // Execute
     $result=curl_exec($ch);
     // Closing
@@ -121,7 +121,7 @@ function get_tagss(){
     // Will return the response, if false it print the response
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     // Set the url
-    curl_setopt($ch, CURLOPT_URL,'https://dabba.plopcom.fr/api/tags');
+    curl_setopt($ch, CURLOPT_URL,'https://api.dabba-consigne.fr/api/tags');
     // Execute
     $result=curl_exec($ch);
     // Closing

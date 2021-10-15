@@ -7,7 +7,9 @@ $map-height: 600px;
 .elementor #dabba-carto img {
     height: inherit;
 }
-
+.elementor-section.elementor-sticky{
+    z-index: 9999;
+}
 form#filter {
     .multiselect-wrap{
         @apply rounded-full m-auto sm:shadow-xl sm:border-0 border mb-6 sm:mb-0;

@@ -316,7 +316,7 @@ function NearestZone(latitude, longitude) {
 
 function initMap(id){
     if (document.getElementById(id)){
-        window.dabba_map = L.map(id,{ dragging: !L.Browser.mobile, tap: !L.Browser.mobile, fullscreenControl: true });
+        window.dabba_map = L.map(id,{ dragging: !L.Browser.mobile, tap: !L.Browser.mobile, fullscreenControl: true , scrollWheelZoom: false});
         centerToZone(window.zones[0]);
 
         L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

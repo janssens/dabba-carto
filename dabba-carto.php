@@ -38,7 +38,8 @@ function shortcode_function($attributes = array() , $content = null ) {
 
 if (!is_admin()) {
     //scripts
-    wp_enqueue_script('dabba', plugins_url('/' . $path . '/js/scripts.js', __FILE__), array('jquery', 'leaflet'));
+    wp_enqueue_script('dabba', plugins_url('/' . $path . '/js/scripts.js', __FILE__), array('jquery', 'leaflet'),'1.2.4');
+
     wp_localize_script('dabba', 'ajax_object',
         array('ajax_url' => admin_url('admin-ajax.php'), 'plugins_url' => plugins_url('/' . $path . '/', __FILE__)));
 

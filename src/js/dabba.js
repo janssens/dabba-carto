@@ -14,8 +14,8 @@ jQuery(document).ready(function($) {
         });
     jQuery.addTemplateFormatter("MyRestaurantName",
         function(value, template) {
-            if (value.length >= 26){
-                return '<span class="text-lg">'+value+'</span>';
+            if (value.length >= 25){
+                return value.substring(0,24)+'&hellip;';
             }
             return value;
         });

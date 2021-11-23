@@ -5,7 +5,7 @@
  * Description: Add dabba map and marker to your site
  * Author: Janssens Gaetan
  * Author URI: https://plopcom.fr
- * Version: 1.2.4
+ * Version: 1.2.5
  */
 
 $is_dev = false;
@@ -38,7 +38,7 @@ function shortcode_function($attributes = array() , $content = null ) {
 
 if (!is_admin()) {
     //scripts
-    wp_enqueue_script('dabba', plugins_url('/' . $path . '/js/scripts.js', __FILE__), array('jquery', 'leaflet'),'1.2.4');
+    wp_enqueue_script('dabba', plugins_url('/' . $path . '/js/scripts.js', __FILE__), array('jquery', 'leaflet'),'1.2.5');
 
     wp_localize_script('dabba', 'ajax_object',
         array('ajax_url' => admin_url('admin-ajax.php'), 'plugins_url' => plugins_url('/' . $path . '/', __FILE__)));

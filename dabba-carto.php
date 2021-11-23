@@ -5,7 +5,7 @@
  * Description: Add dabba map and marker to your site
  * Author: Janssens Gaetan
  * Author URI: https://plopcom.fr
- * Version: 1.1.5
+ * Version: 1.2.0
  */
 
 $is_dev = false;

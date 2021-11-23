@@ -12,6 +12,13 @@ jQuery(document).ready(function($) {
         function(value, template) {
             return 'restaurant_'+value;
         });
+    jQuery.addTemplateFormatter("MyRestaurantName",
+        function(value, template) {
+            if (value.length >= 26){
+                return '<span class="text-lg">'+value+'</span>';
+            }
+            return value;
+        });
     jQuery.addTemplateFormatter("MyBg",
         function(value, template) {
             return '--bg-image: url(\''+value+'\');';

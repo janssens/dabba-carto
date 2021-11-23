@@ -40,9 +40,8 @@ form#filter .multiselect-selected {
       background-repeat: no-repeat; }
     #dabba-carto .zones > a.active {
       color: #F99664; }
-  #dabba-carto .restaurant_card img {
-    height: 16rem !important;
-    width: 16rem !important; }
+  #dabba-carto .restaurant_card .bg-cover {
+    background-image: var(--bg-image); }
   #dabba-carto .restaurant_card .name {
     color: #F99664; }
   #dabba-carto .restaurant_card .address {

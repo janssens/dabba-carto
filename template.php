@@ -2,9 +2,9 @@
     <div class="lg:flex">
         <div class="lg:hidden w-100">
             <?php if ($content) : ?>
-            <div class="content text-white rounded-3xl m-4 text-center py-12 px-8 shadow-xl">
-                <?php echo $content; ?>
-            </div>
+                <div class="content text-white rounded-3xl m-4 text-center py-12 px-8 shadow-xl">
+                    <?php echo $content; ?>
+                </div>
             <?php endif; ?>
         </div>
         <div class="lg:w-2/3 w-100">
@@ -25,9 +25,9 @@
         </div>
         <div class="lg:w-1/3 w-100 hidden sm:block">
             <?php if ($content) : ?>
-            <div class="content text-white rounded-3xl m-4 text-center py-12 px-8 shadow-xl">
-                <?php echo $content; ?>
-            </div>
+                <div class="content text-white rounded-3xl m-4 text-center py-12 px-8 shadow-xl">
+                    <?php echo $content; ?>
+                </div>
             <?php endif; ?>
         </div>
     </div>
@@ -39,13 +39,14 @@
 
 <script type="text/html" id="restaurant_card_template">
     <div data-template-bind='[{"attribute": "id", "value": "id", "formatter": "MyRestaurantId"}]'
-         class="restaurant_card rounded-3xl flex bg-white m-4 overflow-hidden h-64 shadow">
-        <img data-src="image" data-alt="name" class="w-64 h-64 cursor-pointer" >
-        <div class="p-5">
-            <div data-content="name" class="name text-2xl"></div>
+         class="restaurant_card rounded-3xl grid grid-cols-3 bg-white m-4 overflow-hidden h-64 shadow">
+        <div class="h-64 bg-cover bg-center cursor-pointer" data-template-bind='[{"attribute": "style", "value": "image", "formatter": "MyBg"}]'>
+        </div>
+        <div class="px-5 py-2 col-span-2">
+            <div data-template-bind='[{"attribute": "content", "value": "name", "formatter": "MyRestaurantName"}]' class="name text-2xl whitespace-nowrap"></div>
             <div data-template-bind='[{"attribute": "content", "value": "tags", "formatter": "MyRestaurantTags"}]' class="text-sm font-bold"></div>
             <div data-content="address" class="text-base address"></div>
-            <div data-content="phone" class="text-lg"></div>
+            <div data-content="phone" class="text-base"></div>
             <a data-href="website" class="no-underline" target="_blank">voir le site web</a>
         </div>
     </div>

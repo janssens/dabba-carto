@@ -59,9 +59,8 @@ form#filter {
         }
     }
     .restaurant_card{
-        img {
-            height: 16rem !important;
-            width: 16rem !important;
+        .bg-cover{
+            background-image: var(--bg-image);
         }
         .name {
             color: $crevette;

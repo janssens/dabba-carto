@@ -326,7 +326,8 @@ function initMap(id){
         window.dabba_map = L.map(id,{ dragging: !L.Browser.mobile, tap: !L.Browser.mobile, fullscreenControl: true , scrollWheelZoom: false});
         centerToZone(window.zones[0]);
 
-        L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        // https !
+        L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
             subdomains: ['a','b','c']
         }).addTo( window.dabba_map );

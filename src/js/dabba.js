@@ -120,14 +120,6 @@ window.close_zoom = 16;
 window.markers = {};
 window.meal_types = [];
 window.tags = [];
-window.zones = [
-    {"name" : "Grenoble", "lat" : 45.1841642, "lng" : 5.6980329},
-    {"name" : "Lyon", "lat" : 45.7579502,"lng" : 4.8001018},
-    // {"name" : "Savoie", "lat" : 45.5822142,"lng" : 5.871334},
-    {"name" : "Annecy", "lat" : 45.8898747,"lng" : 6.0934833},
-    {"name" : "Chamonix-Mont-Blanc", "lat" : 45.9320419,"lng" : 6.8589215}
-];
-
 window.myIcon = null;
 
 function getMealTypes(){
@@ -151,7 +143,7 @@ function getMealTypes(){
                 }
                 $meal_container.multiSelect({
                     label: $meal_container.data('placeholder')
-                });
+                }).removeClass('hidden');
                 jQuery('[name="meal_types"]').val('');
                 $meal_container.on('click','.multiselect-wrap', function(){
                     var list = jQuery('[name="meal_types"]').val();
@@ -203,7 +195,7 @@ function getTags(){
                 }
                 $tags_container.multiSelect({
                     label: $tags_container.data('placeholder')
-                });
+                }).removeClass('hidden');
                 jQuery('[name="tags"]').val('');
                 $tags_container.on('click','.multiselect-wrap', function(){
                     var has_change = false;

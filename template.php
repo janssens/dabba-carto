@@ -1,3 +1,19 @@
+<?php
+$options = get_option( 'dabba_fields' );
+$continue = true;
+if (!isset($options['api_url'])){
+    echo "Api url must be set in plugin option";
+    $continue = false;
+}
+if (!isset($options['zones'])){
+    $options['zones'] = '[]';
+}
+
+if ($continue) :
+?>
+<script>
+    window.zones = <?php echo $options['zones']; ?>;
+</script>
 <div id="dabba-carto" class="alignfull p-4">
     <div class="lg:flex">
         <div class="lg:hidden w-100">
@@ -11,12 +27,12 @@
             <div class="h-24 w-100 lg:block hidden"></div>
             <div class="zones w-100 text-center mb-12 text-lg"></div>
             <form id="filter" class="sm:flex mb-12" >
-                <div id="meal_types" data-placeholder="Type de repas :" class="w-full sm:w-1/2">
+                <div id="meal_types" data-placeholder="Type de repas :" class="w-full sm:w-1/2 hidden">
                     <select >
                     </select>
                     <input type="text" name="meal_types" disabled="disabled" class="hidden"/>
                 </div>
-                <div id="tags" data-placeholder="Je veux manger un plat :" class="w-full sm:w-1/2">
+                <div id="tags" data-placeholder="Je veux manger un plat :" class="w-full sm:w-1/2 hidden">
                     <select >
                     </select>
                     <input type="text" name="tags" disabled="disabled" class="hidden"/>
@@ -63,3 +79,4 @@
     </div>
     <div data-template-bind='[{"attribute": "content", "value": "opening_hours", "formatter": "MyOpeningHours"}]'></div>
 </script>
+<?php endif; ?>
